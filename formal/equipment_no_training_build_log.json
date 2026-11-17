@@ -1,0 +1,246 @@
+{
+  "buildLog": {
+    "entries": [
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "2. Definitions 2.1 Every person has exactly one role: enrolled student, staff, or visitor."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addType": {
+                  "type": {
+                    "name": "role",
+                    "description": "The role assigned to a person under the Halvorsen Lab Equipment Checkout Policy. Every person has exactly one role.",
+                    "values": [
+                      {
+                        "value": "enrolled student",
+                        "description": "A person who is an enrolled student."
+                      },
+                      {
+                        "value": "staff",
+                        "description": "A person who is a member of staff."
+                      },
+                      {
+                        "value": "visitor",
+                        "description": "A person who is a visitor."
+                      },
+                      {
+                        "value": "role_OTHER",
+                        "description": "Any role not captured by the explicitly listed roles. Since the policy states every person has exactly one of the listed roles, this value is not valid."
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addVariable": {
+                  "variable": {
+                    "name": "personRole",
+                    "type": "role",
+                    "description": "The single role held by the person being evaluated for equipment checkout: enrolled student, staff, or visitor."
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "W9PEZSCFZL57",
+                    "expression": "(not (= personRole\n        role_OTHER))",
+                    "alternateExpression": "A person's role must be one of the defined roles (enrolled student, staff, or visitor); the OTHER value is not valid because every person has exactly one of the listed roles."
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "1. Purpose This policy decides whether a person may check out lab equipment."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addVariable": {
+                  "variable": {
+                    "name": "mayCheckOutLabEquipment",
+                    "type": "BOOL",
+                    "description": "Whether the person is permitted to check out lab equipment under this policy."
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "3. Checkout rule 3.1 A person may check out lab equipment if and only if their role is enrolled student or staff."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "UQGAR25FANTY",
+                    "expression": "(= mayCheckOutLabEquipment\n   (or (= personRole\n          |enrolled student|)\n       (= personRole staff)))",
+                    "alternateExpression": "A person may check out lab equipment if and only if their role is enrolled student or staff."
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "3.2 Visitors cannot check out lab equipment, regardless of their safety training."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "IF92DU9H2RMU",
+                    "expression": "(=> (= personRole visitor)\n    (not mayCheckOutLabEquipment))",
+                    "alternateExpression": "If the person's role is visitor, then they may not check out lab equipment."
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "deleteRule": {
+            "ruleId": "UQGAR25FANTY"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "deleteRule": {
+                  "id": "UQGAR25FANTY"
+                }
+              }
+            },
+            "priorElement": {
+              "policyDefinitionRule": {
+                "id": "UQGAR25FANTY",
+                "expression": "(= mayCheckOutLabEquipment\n   (or (= personRole\n          |enrolled student|)\n       (= personRole staff)))",
+                "alternateExpression": "A person may check out lab equipment if and only if their role is enrolled student or staff."
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "addRule": {
+            "expression": "(=> mayCheckOutLabEquipment (or (= personRole |enrolled student|) (= personRole staff)))"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "V6L52UY0LH4O",
+                    "expression": "(=> mayCheckOutLabEquipment\n    (or (= personRole\n           |enrolled student|)\n        (= personRole staff)))",
+                    "alternateExpression": "si mayCheckOutLabEquipment est vrai, alors personRole est \u00e9gal \u00e0 enrolled student ou personRole est \u00e9gal \u00e0 staff"
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "addRule": {
+            "expression": "(=> (not mayCheckOutLabEquipment) (not (= personRole |enrolled student|)))"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "S7SP07GC3ILW",
+                    "expression": "(=> (not mayCheckOutLabEquipment)\n    (not (= personRole\n            |enrolled student|)))",
+                    "alternateExpression": "si mayCheckOutLabEquipment est faux, alors personRole est diff\u00e9rent de enrolled student"
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "addRule": {
+            "expression": "(=> (not mayCheckOutLabEquipment) (not (= personRole staff)))"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "KSNMPCMEMPA3",
+                    "expression": "(=> (not mayCheckOutLabEquipment)\n    (not (= personRole staff)))",
+                    "alternateExpression": "si mayCheckOutLabEquipment est faux, alors personRole est diff\u00e9rent de staff"
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "version": "1",
+  "types": [
+    {
+      "name": "role",
+      "description": "The role assigned to a person. Every person has exactly one role.",
+      "values": [
+        {
+          "value": "enrolled student",
+          "description": "A person who is an enrolled student."
+        },
+        {
+          "value": "staff",
+          "description": "A person who is a member of staff."
+        },
+        {
+          "value": "visitor",
+          "description": "A person who is a visitor."
+        },
+        {
+          "value": "role_OTHER",
+          "description": "A role that is not one of the modeled roles (enrolled student, staff, or visitor)."
+        }
+      ]
+    },
+    {
+      "name": "safetyTraining",
+      "description": "The status of a person's safety training. It is either current or not current. Training that has expired or was never completed is not current.",
+      "values": [
+        {
+          "value": "current",
+          "description": "The person's safety training is current."
+        },
+        {
+          "value": "notCurrent",
+          "description": "The person's safety training is not current, including training that has expired or was never completed."
+        },
+        {
+          "value": "safetyTraining_OTHER",
+          "description": "A safety training status that is not one of the modeled states (current or not current)."
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "QGMYAGJKT7J2",
+      "expression": "(not (= personRole\n        role_OTHER))",
+      "alternateExpression": "A person's role must be one of the modeled roles: enrolled student, staff, or visitor (it cannot be the OTHER value)."
+    },
+    {
+      "id": "OIZMBJJ6G4UJ",
+      "expression": "(not (= personSafetyTraining\n        safetyTraining_OTHER))",
+      "alternateExpression": "A person's safety training status must be one of the modeled states: current or not current (it cannot be the OTHER value)."
+    },
+    {
+      "id": "YWM8XVXCPHSL",
+      "expression": "(=> (= personRole visitor)\n    (not isCheckoutAllowed))",
+      "alternateExpression": "Visitors cannot check out lab equipment, regardless of their safety training."
+    },
+    {
+      "id": "XXSD0Z98EYAR",
+      "expression": "(=> (= personSafetyTraining\n       notCurrent)\n    (not isCheckoutAllowed))",
+      "alternateExpression": "A person whose safety training is not current cannot check out lab equipment, regardless of their role."
+    },
+    {
+      "id": "GXWE2MDZA5MJ",
+      "expression": "(=> isCheckoutAllowed\n    (or (= personRole\n           |enrolled student|)\n        (= personRole staff)))",
+      "alternateExpression": "if isCheckoutAllowed is true, then personRole is equal to enrolled student or personRole is equal to staff"
+    },
+    {
+      "id": "KCC11V5XWOOL",
+      "expression": "(=> isCheckoutAllowed\n    (= personSafetyTraining\n       current))",
+      "alternateExpression": "if isCheckoutAllowed is true, then personSafetyTraining is equal to current"
+    },
+    {
+      "id": "W2VYX3AQTGO6",
+      "expression": "(=> (not isCheckoutAllowed)\n    (or (not (= personSafetyTraining\n                current))\n        (not (= personRole\n                |enrolled student|))))",
+      "alternateExpression": "if isCheckoutAllowed is false, then personSafetyTraining is not equal to current or personRole is not equal to enrolled student"
+    },
+    {
+      "id": "HC7CVTH2KGA9",
+      "expression": "(=> (not isCheckoutAllowed)\n    (or (not (= personSafetyTraining\n                current))\n        (not (= personRole staff))))",
+      "alternateExpression": "if isCheckoutAllowed is false, then personSafetyTraining is not equal to current or personRole is not equal to staff"
+    }
+  ],
+  "variables": [
+    {
+      "name": "personRole",
+      "type": "role",
+      "description": "The role assigned to a person: enrolled student, staff, or visitor."
+    },
+    {
+      "name": "personSafetyTraining",
+      "type": "safetyTraining",
+      "description": "The status of a person's safety training: current or not current."
+    },
+    {
+      "name": "isCheckoutAllowed",
+      "type": "BOOL",
+      "description": "Whether the person may check out lab equipment. True if and only if the person is permitted to check out lab equipment."
+    }
+  ]
+}

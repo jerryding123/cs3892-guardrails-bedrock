@@ -1,0 +1,342 @@
+{
+  "buildLog": {
+    "entries": [
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "Northfield Analytics Leave Eligibility Policy (fictional) 1. Purpose This policy decides whether an employee is eligible for paid leave."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": []
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "2.1 An employee is either full-time or part-time."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": []
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "2.2 Months of service is the number of whole calendar months the employee has completed since their hire date. Partial months do not count."
+          }
+        },
+        "status": "FAILED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addVariable": {
+                  "variable": {
+                    "name": "monthsOfService",
+                    "type": "INT",
+                    "description": "The number of whole calendar months the employee has completed since their hire date. Partial months do not count. This value cannot be negative."
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addVariable": {
+                  "variable": {
+                    "name": "employmentStatusValue",
+                    "type": "employmentStatus",
+                    "description": "The employment classification of the specific employee, which is either full-time or part-time."
+                  }
+                }
+              }
+            },
+            "priorElement": {
+              "policyDefinitionVariable": {
+                "name": "employmentStatusValue",
+                "type": "employmentStatus",
+                "description": "The employment classification of the specific employee, which is either full-time or part-time."
+              }
+            },
+            "messages": [
+              {
+                "message": "Enum type employmentStatus was not found.",
+                "messageType": "ERROR"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "3.1 An employee is eligible for leave if and only if the employee is full-time and has completed at least 12 months of service."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addType": {
+                  "type": {
+                    "name": "employmentStatus",
+                    "description": "The employment status of the employee, indicating whether they work on a full-time or part-time basis.",
+                    "values": [
+                      {
+                        "value": "full_time",
+                        "description": "The employee works on a full-time basis."
+                      },
+                      {
+                        "value": "part_time",
+                        "description": "The employee works on a part-time basis."
+                      },
+                      {
+                        "value": "employmentStatus_OTHER",
+                        "description": "An employment status other than full-time or part-time. This value is not permitted by the policy."
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addVariable": {
+                  "variable": {
+                    "name": "employmentStatusValue",
+                    "type": "employmentStatus",
+                    "description": "The employment status of the employee, either full-time or part-time."
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addVariable": {
+                  "variable": {
+                    "name": "monthsOfService",
+                    "type": "INT",
+                    "description": "The number of whole months of service the employee has completed."
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addVariable": {
+                  "variable": {
+                    "name": "isEligibleForLeave",
+                    "type": "BOOL",
+                    "description": "Whether the employee is eligible for paid leave. True if and only if the employee is full-time and has completed at least 12 months of service."
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "TC3PSH8H4VQE",
+                    "expression": "(= isEligibleForLeave\n   (and (= employmentStatusValue\n           full_time)\n        (>= monthsOfService 12)))",
+                    "alternateExpression": "An employee is eligible for leave if and only if the employee's employment status is full-time and the employee has completed at least 12 months of service."
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "PXI9P44H914X",
+                    "expression": "(not (= employmentStatusValue\n        employmentStatus_OTHER))",
+                    "alternateExpression": "The employee's employment status cannot be a value other than full-time or part-time."
+                  }
+                }
+              }
+            },
+            "messages": []
+          },
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "AS1RD99E9QE1",
+                    "expression": "(>= monthsOfService 0)",
+                    "alternateExpression": "The number of whole months of service completed cannot be negative."
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "3.2 A part-time employee is not eligible for leave, regardless of months of service."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "IISASMNF0GAW",
+                    "expression": "(=> (= employmentStatusValue\n       part_time)\n    (not isEligibleForLeave))",
+                    "alternateExpression": "If the employee's employment status is part-time, then the employee is not eligible for leave, regardless of months of service."
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "ingestContent": {
+            "content": "3.3 An employee who has completed fewer than 12 months of service is not eligible for leave, regardless of full-time or part-time status."
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "A55J7KMVGXVS",
+                    "expression": "(=> (< monthsOfService 12)\n    (not isEligibleForLeave))",
+                    "alternateExpression": "If the employee has completed fewer than 12 months of service, then the employee is not eligible for leave, regardless of full-time or part-time status."
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "deleteRule": {
+            "ruleId": "TC3PSH8H4VQE"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "deleteRule": {
+                  "id": "TC3PSH8H4VQE"
+                }
+              }
+            },
+            "priorElement": {
+              "policyDefinitionRule": {
+                "id": "TC3PSH8H4VQE",
+                "expression": "(= isEligibleForLeave\n   (and (= employmentStatusValue\n           full_time)\n        (>= monthsOfService 12)))",
+                "alternateExpression": "An employee is eligible for leave if and only if the employee's employment status is full-time and the employee has completed at least 12 months of service."
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "addRule": {
+            "expression": "(=> isEligibleForLeave (= employmentStatusValue full_time))"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "XD0BB13N9CSX",
+                    "expression": "(=> isEligibleForLeave\n    (= employmentStatusValue\n       full_time))",
+                    "alternateExpression": "if isEligibleForLeave is true, then employmentStatusValue is equal to full_time"
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "addRule": {
+            "expression": "(=> isEligibleForLeave (>= monthsOfService 12))"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "PH15TAH4RR0T",
+                    "expression": "(=> isEligibleForLeave\n    (>= monthsOfService 12))",
+                    "alternateExpression": "if isEligibleForLeave is true, then monthsOfService is at least 12"
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      },
+      {
+        "annotation": {
+          "addRule": {
+            "expression": "(=> (not isEligibleForLeave) (or (not (= employmentStatusValue full_time)) (not (>= monthsOfService 12))))"
+          }
+        },
+        "status": "APPLIED",
+        "buildSteps": [
+          {
+            "context": {
+              "mutation": {
+                "addRule": {
+                  "rule": {
+                    "id": "PBUYEPFMA7Z1",
+                    "expression": "(=> (not isEligibleForLeave)\n    (or (not (= employmentStatusValue\n                full_time))\n        (not (>= monthsOfService 12))))",
+                    "alternateExpression": "if isEligibleForLeave is false, then employmentStatusValue is not equal to full_time or monthsOfService is less than 12"
+                  }
+                }
+              }
+            },
+            "messages": []
+          }
+        ]
+      }
+    ]
+  }
+}

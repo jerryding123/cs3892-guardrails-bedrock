@@ -1,0 +1,26 @@
+{
+  "qualityReport": {
+    "typeCount": 1,
+    "variableCount": 2,
+    "ruleCount": 5,
+    "unusedTypes": [],
+    "unusedTypeValues": [],
+    "unusedVariables": [],
+    "conflictingRules": [],
+    "disjointRuleSets": [
+      {
+        "variables": [
+          "personRole",
+          "mayCheckOutLabEquipment"
+        ],
+        "rules": [
+          "W9PEZSCFZL57",
+          "IF92DU9H2RMU",
+          "V6L52UY0LH4O",
+          "S7SP07GC3ILW",
+          "KSNMPCMEMPA3"
+        ]
+      }
+    ]
+  }
+}

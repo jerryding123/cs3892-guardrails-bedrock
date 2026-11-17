@@ -1,0 +1,35 @@
+{
+  "leave": {
+    "policy_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/i83lh6qa6p41",
+    "build_workflow_id": "0a6f29be-ce7d-49e3-9c42-69caf418681a",
+    "definition_file": "formal/leave_definition.json",
+    "applied_definition": true,
+    "version_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/i83lh6qa6p41:1",
+    "version": "1",
+    "guardrail_id": "ce6t8060ktvy",
+    "guardrail_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/ce6t8060ktvy",
+    "guardrail_version": "1"
+  },
+  "equipment": {
+    "policy_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/1v1y8zlmmx4n",
+    "build_workflow_id": "7d6188c1-458a-4596-bb7f-7a531d5b2a37",
+    "definition_file": "formal/equipment_definition.json",
+    "applied_definition": true,
+    "version_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/1v1y8zlmmx4n:1",
+    "version": "1",
+    "guardrail_id": "o9du2pd5zoxl",
+    "guardrail_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/o9du2pd5zoxl",
+    "guardrail_version": "1"
+  },
+  "equipment_no_training": {
+    "policy_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/epo8oi8tyvbb",
+    "build_workflow_id": "54fb716b-bea4-456a-a213-92246db51a40",
+    "definition_file": "formal/equipment_no_training_definition.json",
+    "applied_definition": true,
+    "version_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/epo8oi8tyvbb:1",
+    "version": "1",
+    "guardrail_id": "xrllulnk0qd8",
+    "guardrail_arn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/xrllulnk0qd8",
+    "guardrail_version": "1"
+  }
+}

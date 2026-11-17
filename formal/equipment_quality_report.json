@@ -1,0 +1,30 @@
+{
+  "qualityReport": {
+    "typeCount": 2,
+    "variableCount": 3,
+    "ruleCount": 8,
+    "unusedTypes": [],
+    "unusedTypeValues": [],
+    "unusedVariables": [],
+    "conflictingRules": [],
+    "disjointRuleSets": [
+      {
+        "variables": [
+          "personRole",
+          "isCheckoutAllowed",
+          "personSafetyTraining"
+        ],
+        "rules": [
+          "QGMYAGJKT7J2",
+          "YWM8XVXCPHSL",
+          "GXWE2MDZA5MJ",
+          "W2VYX3AQTGO6",
+          "HC7CVTH2KGA9",
+          "XXSD0Z98EYAR",
+          "KCC11V5XWOOL",
+          "OIZMBJJ6G4UJ"
+        ]
+      }
+    ]
+  }
+}

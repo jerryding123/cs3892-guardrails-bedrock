@@ -1,0 +1,29 @@
+{
+  "qualityReport": {
+    "typeCount": 1,
+    "variableCount": 3,
+    "ruleCount": 7,
+    "unusedTypes": [],
+    "unusedTypeValues": [],
+    "unusedVariables": [],
+    "conflictingRules": [],
+    "disjointRuleSets": [
+      {
+        "variables": [
+          "employmentStatusValue",
+          "isEligibleForLeave",
+          "monthsOfService"
+        ],
+        "rules": [
+          "PXI9P44H914X",
+          "IISASMNF0GAW",
+          "XD0BB13N9CSX",
+          "PBUYEPFMA7Z1",
+          "A55J7KMVGXVS",
+          "PH15TAH4RR0T",
+          "AS1RD99E9QE1"
+        ]
+      }
+    ]
+  }
+}
