@@ -1,0 +1,98 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "valid": {
+       "translation": {
+        "premises": [
+         {
+          "logic": "(= personRole visitor)",
+          "naturalLanguage": "personRole is equal to visitor"
+         }
+        ],
+        "claims": [
+         {
+          "logic": "(not mayCheckOutLabEquipment)",
+          "naturalLanguage": "mayCheckOutLabEquipment is false"
+         }
+        ],
+        "untranslatedPremises": [],
+        "untranslatedClaims": [],
+        "confidence": 1.0
+       },
+       "claimsTrueScenario": {
+        "statements": [
+         {
+          "logic": "(= mayCheckOutLabEquipment\n   false)",
+          "naturalLanguage": "mayCheckOutLabEquipment is false"
+         },
+         {
+          "logic": "(= personRole visitor)",
+          "naturalLanguage": "personRole is equal to visitor"
+         }
+        ]
+       },
+       "supportingRules": [
+        {
+         "identifier": "IF92DU9H2RMU",
+         "policyVersionArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/epo8oi8tyvbb:1"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2401,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 44,
+      "total": 123
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "xrllulnk0qd8",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/xrllulnk0qd8",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 44,
+   "total": 123
+  }
+ }
+}

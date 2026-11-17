@@ -1,0 +1,161 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "translationAmbiguous": {
+       "options": [
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= employmentStatusValue\n   full_time)",
+             "naturalLanguage": "employmentStatusValue is equal to full_time"
+            },
+            {
+             "logic": "(= monthsOfService 11)",
+             "naturalLanguage": "monthsOfService is equal to 11"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isEligibleForLeave)",
+             "naturalLanguage": "isEligibleForLeave is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          },
+          {
+           "premises": [],
+           "claims": [
+            {
+             "logic": "(>= monthsOfService 12)",
+             "naturalLanguage": "monthsOfService is at least 12"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        },
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= employmentStatusValue\n   full_time)",
+             "naturalLanguage": "employmentStatusValue is equal to full_time"
+            },
+            {
+             "logic": "(= monthsOfService 11)",
+             "naturalLanguage": "monthsOfService is equal to 11"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isEligibleForLeave)",
+             "naturalLanguage": "isEligibleForLeave is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          },
+          {
+           "premises": [
+            {
+             "logic": "(= employmentStatusValue\n   full_time)",
+             "naturalLanguage": "employmentStatusValue is equal to full_time"
+            },
+            {
+             "logic": "(< monthsOfService 12)",
+             "naturalLanguage": "monthsOfService is less than 12"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isEligibleForLeave)",
+             "naturalLanguage": "isEligibleForLeave is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        }
+       ],
+       "differenceScenarios": [
+        {
+         "statements": []
+        },
+        {
+         "statements": [
+          {
+           "logic": "(= monthsOfService 0)",
+           "naturalLanguage": "monthsOfService is equal to 0"
+          },
+          {
+           "logic": "(= isEligibleForLeave\n   false)",
+           "naturalLanguage": "isEligibleForLeave is false"
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 3122,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 79,
+      "total": 158
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "ce6t8060ktvy",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/ce6t8060ktvy",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 79,
+   "total": 158
+  }
+ }
+}

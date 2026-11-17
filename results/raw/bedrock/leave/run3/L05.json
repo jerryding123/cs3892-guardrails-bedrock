@@ -1,0 +1,130 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "translationAmbiguous": {
+       "options": [
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= employmentStatusValue\n   part_time)",
+             "naturalLanguage": "employmentStatusValue is equal to part_time"
+            },
+            {
+             "logic": "(= monthsOfService 30)",
+             "naturalLanguage": "monthsOfService is equal to 30"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isEligibleForLeave)",
+             "naturalLanguage": "isEligibleForLeave is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        },
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= employmentStatusValue\n   part_time)",
+             "naturalLanguage": "employmentStatusValue is equal to part_time"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isEligibleForLeave)",
+             "naturalLanguage": "isEligibleForLeave is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        }
+       ],
+       "differenceScenarios": [
+        {
+         "statements": [
+          {
+           "logic": "(= employmentStatusValue\n   part_time)",
+           "naturalLanguage": "employmentStatusValue is equal to part_time"
+          },
+          {
+           "logic": "(= monthsOfService 0)",
+           "naturalLanguage": "monthsOfService is equal to 0"
+          },
+          {
+           "logic": "(= isEligibleForLeave\n   true)",
+           "naturalLanguage": "isEligibleForLeave is true"
+          }
+         ]
+        },
+        {
+         "statements": []
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2370,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 51,
+      "total": 141
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "ce6t8060ktvy",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/ce6t8060ktvy",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 51,
+   "total": 141
+  }
+ }
+}

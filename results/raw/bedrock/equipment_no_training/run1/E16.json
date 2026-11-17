@@ -1,0 +1,158 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "satisfiable": {
+       "translation": {
+        "premises": [],
+        "claims": [
+         {
+          "logic": "true",
+          "naturalLanguage": "true"
+         },
+         {
+          "logic": "mayCheckOutLabEquipment",
+          "naturalLanguage": "mayCheckOutLabEquipment is true"
+         }
+        ],
+        "untranslatedPremises": [],
+        "untranslatedClaims": [
+         {
+          "text": "safety training is optional for checking out lab equipment"
+         }
+        ],
+        "confidence": 1.0
+       },
+       "claimsTrueScenario": {
+        "statements": [
+         {
+          "logic": "(= mayCheckOutLabEquipment\n   true)",
+          "naturalLanguage": "mayCheckOutLabEquipment is true"
+         },
+         {
+          "logic": "(= personRole\n   |enrolled student|)",
+          "naturalLanguage": "personRole is equal to enrolled student"
+         }
+        ]
+       },
+       "claimsFalseScenario": {
+        "statements": [
+         {
+          "logic": "(= mayCheckOutLabEquipment\n   false)",
+          "naturalLanguage": "mayCheckOutLabEquipment is false"
+         },
+         {
+          "logic": "(= personRole visitor)",
+          "naturalLanguage": "personRole is equal to visitor"
+         }
+        ]
+       }
+      }
+     },
+     {
+      "satisfiable": {
+       "translation": {
+        "premises": [],
+        "claims": [
+         {
+          "logic": "mayCheckOutLabEquipment",
+          "naturalLanguage": "mayCheckOutLabEquipment is true"
+         },
+         {
+          "logic": "true",
+          "naturalLanguage": "true"
+         }
+        ],
+        "untranslatedPremises": [],
+        "untranslatedClaims": [
+         {
+          "text": "safety training is optional for checking out lab equipment"
+         }
+        ],
+        "confidence": 1.0
+       },
+       "claimsTrueScenario": {
+        "statements": [
+         {
+          "logic": "(= mayCheckOutLabEquipment\n   true)",
+          "naturalLanguage": "mayCheckOutLabEquipment is true"
+         },
+         {
+          "logic": "(= personRole\n   |enrolled student|)",
+          "naturalLanguage": "personRole is equal to enrolled student"
+         }
+        ]
+       },
+       "claimsFalseScenario": {
+        "statements": [
+         {
+          "logic": "(= mayCheckOutLabEquipment\n   false)",
+          "naturalLanguage": "mayCheckOutLabEquipment is false"
+         },
+         {
+          "logic": "(= personRole visitor)",
+          "naturalLanguage": "personRole is equal to visitor"
+         }
+        ]
+       }
+      }
+     },
+     {
+      "noTranslations": {}
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2202,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 64,
+      "total": 129
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "xrllulnk0qd8",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/xrllulnk0qd8",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 64,
+   "total": 129
+  }
+ }
+}

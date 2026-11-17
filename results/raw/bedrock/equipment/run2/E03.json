@@ -1,0 +1,130 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "translationAmbiguous": {
+       "options": [
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= personRole visitor)",
+             "naturalLanguage": "personRole is equal to visitor"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isCheckoutAllowed)",
+             "naturalLanguage": "isCheckoutAllowed is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        },
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= personRole visitor)",
+             "naturalLanguage": "personRole is equal to visitor"
+            },
+            {
+             "logic": "(= personSafetyTraining\n   current)",
+             "naturalLanguage": "personSafetyTraining is equal to current"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isCheckoutAllowed)",
+             "naturalLanguage": "isCheckoutAllowed is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        }
+       ],
+       "differenceScenarios": [
+        {
+         "statements": []
+        },
+        {
+         "statements": [
+          {
+           "logic": "(= isCheckoutAllowed\n   true)",
+           "naturalLanguage": "isCheckoutAllowed is true"
+          },
+          {
+           "logic": "(= personSafetyTraining\n   notCurrent)",
+           "naturalLanguage": "personSafetyTraining is equal to notCurrent"
+          },
+          {
+           "logic": "(= personRole visitor)",
+           "naturalLanguage": "personRole is equal to visitor"
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2424,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 44,
+      "total": 123
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "o9du2pd5zoxl",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/o9du2pd5zoxl",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 44,
+   "total": 123
+  }
+ }
+}

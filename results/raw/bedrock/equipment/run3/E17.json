@@ -1,0 +1,112 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "satisfiable": {
+       "translation": {
+        "premises": [
+         {
+          "logic": "(= personRole staff)",
+          "naturalLanguage": "personRole is equal to staff"
+         }
+        ],
+        "claims": [
+         {
+          "logic": "isCheckoutAllowed",
+          "naturalLanguage": "isCheckoutAllowed is true"
+         }
+        ],
+        "untranslatedPremises": [],
+        "untranslatedClaims": [],
+        "confidence": 1.0
+       },
+       "claimsTrueScenario": {
+        "statements": [
+         {
+          "logic": "(= personRole staff)",
+          "naturalLanguage": "personRole is equal to staff"
+         },
+         {
+          "logic": "(= isCheckoutAllowed\n   true)",
+          "naturalLanguage": "isCheckoutAllowed is true"
+         },
+         {
+          "logic": "(= personSafetyTraining\n   current)",
+          "naturalLanguage": "personSafetyTraining is equal to current"
+         }
+        ]
+       },
+       "claimsFalseScenario": {
+        "statements": [
+         {
+          "logic": "(= personRole staff)",
+          "naturalLanguage": "personRole is equal to staff"
+         },
+         {
+          "logic": "(= isCheckoutAllowed\n   false)",
+          "naturalLanguage": "isCheckoutAllowed is false"
+         },
+         {
+          "logic": "(= personSafetyTraining\n   notCurrent)",
+          "naturalLanguage": "personSafetyTraining is equal to notCurrent"
+         }
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2007,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 46,
+      "total": 126
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "o9du2pd5zoxl",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/o9du2pd5zoxl",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 46,
+   "total": 126
+  }
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "invalid": {
+       "translation": {
+        "premises": [
+         {
+          "logic": "(= personRole visitor)",
+          "naturalLanguage": "personRole is equal to visitor"
+         },
+         {
+          "logic": "(= personSafetyTraining\n   current)",
+          "naturalLanguage": "personSafetyTraining is equal to current"
+         }
+        ],
+        "claims": [
+         {
+          "logic": "isCheckoutAllowed",
+          "naturalLanguage": "isCheckoutAllowed is true"
+         }
+        ],
+        "untranslatedPremises": [],
+        "untranslatedClaims": [],
+        "confidence": 1.0
+       },
+       "contradictingRules": [
+        {
+         "identifier": "YWM8XVXCPHSL",
+         "policyVersionArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/1v1y8zlmmx4n:1"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2644,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 4,
+      "total": 83
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "o9du2pd5zoxl",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/o9du2pd5zoxl",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 4,
+   "total": 83
+  }
+ }
+}

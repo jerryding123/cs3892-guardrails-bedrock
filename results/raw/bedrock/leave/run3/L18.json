@@ -1,0 +1,130 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "translationAmbiguous": {
+       "options": [
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= employmentStatusValue\n   full_time)",
+             "naturalLanguage": "employmentStatusValue is equal to full_time"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "isEligibleForLeave",
+             "naturalLanguage": "isEligibleForLeave is true"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        },
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= employmentStatusValue\n   full_time)",
+             "naturalLanguage": "employmentStatusValue is equal to full_time"
+            },
+            {
+             "logic": "(= monthsOfService 0)",
+             "naturalLanguage": "monthsOfService is equal to 0"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "isEligibleForLeave",
+             "naturalLanguage": "isEligibleForLeave is true"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        }
+       ],
+       "differenceScenarios": [
+        {
+         "statements": []
+        },
+        {
+         "statements": [
+          {
+           "logic": "(= employmentStatusValue\n   full_time)",
+           "naturalLanguage": "employmentStatusValue is equal to full_time"
+          },
+          {
+           "logic": "(= isEligibleForLeave\n   false)",
+           "naturalLanguage": "isEligibleForLeave is false"
+          },
+          {
+           "logic": "(= monthsOfService -1)",
+           "naturalLanguage": "monthsOfService is equal to -1"
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2196,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 52,
+      "total": 167
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "ce6t8060ktvy",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/ce6t8060ktvy",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 52,
+   "total": 167
+  }
+ }
+}

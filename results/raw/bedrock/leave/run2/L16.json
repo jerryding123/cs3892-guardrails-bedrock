@@ -1,0 +1,86 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "invalid": {
+       "translation": {
+        "premises": [
+         {
+          "logic": "(= employmentStatusValue\n   part_time)",
+          "naturalLanguage": "employmentStatusValue is equal to part_time"
+         }
+        ],
+        "claims": [
+         {
+          "logic": "isEligibleForLeave",
+          "naturalLanguage": "isEligibleForLeave is true"
+         }
+        ],
+        "untranslatedPremises": [],
+        "untranslatedClaims": [],
+        "confidence": 1.0
+       },
+       "contradictingRules": [
+        {
+         "identifier": "IISASMNF0GAW",
+         "policyVersionArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:automated-reasoning-policy/i83lh6qa6p41:1"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 2315,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 52,
+      "total": 102
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "ce6t8060ktvy",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/ce6t8060ktvy",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 52,
+   "total": 102
+  }
+ }
+}

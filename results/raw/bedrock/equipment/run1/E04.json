@@ -1,0 +1,162 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "translationAmbiguous": {
+       "options": [
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= personRole\n   |enrolled student|)",
+             "naturalLanguage": "personRole is equal to enrolled student"
+            },
+            {
+             "logic": "(= personSafetyTraining\n   notCurrent)",
+             "naturalLanguage": "personSafetyTraining is equal to notCurrent"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isCheckoutAllowed)",
+             "naturalLanguage": "isCheckoutAllowed is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          },
+          {
+           "premises": [
+            {
+             "logic": "(= personSafetyTraining\n   notCurrent)",
+             "naturalLanguage": "personSafetyTraining is equal to notCurrent"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isCheckoutAllowed)",
+             "naturalLanguage": "isCheckoutAllowed is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        },
+        {
+         "translations": [
+          {
+           "premises": [
+            {
+             "logic": "(= personRole\n   |enrolled student|)",
+             "naturalLanguage": "personRole is equal to enrolled student"
+            },
+            {
+             "logic": "(= personSafetyTraining\n   notCurrent)",
+             "naturalLanguage": "personSafetyTraining is equal to notCurrent"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(not isCheckoutAllowed)",
+             "naturalLanguage": "isCheckoutAllowed is false"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          },
+          {
+           "premises": [
+            {
+             "logic": "isCheckoutAllowed",
+             "naturalLanguage": "isCheckoutAllowed is true"
+            }
+           ],
+           "claims": [
+            {
+             "logic": "(= personSafetyTraining\n   current)",
+             "naturalLanguage": "personSafetyTraining is equal to current"
+            }
+           ],
+           "untranslatedPremises": [],
+           "untranslatedClaims": []
+          }
+         ]
+        }
+       ],
+       "differenceScenarios": [
+        {
+         "statements": [
+          {
+           "logic": "(= personSafetyTraining\n   safetyTraining_OTHER)",
+           "naturalLanguage": "personSafetyTraining is equal to safetyTraining_OTHER"
+          },
+          {
+           "logic": "(= isCheckoutAllowed\n   true)",
+           "naturalLanguage": "isCheckoutAllowed is true"
+          }
+         ]
+        },
+        {
+         "statements": []
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 3722,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 68,
+      "total": 166
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "o9du2pd5zoxl",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/o9du2pd5zoxl",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 68,
+   "total": 166
+  }
+ }
+}

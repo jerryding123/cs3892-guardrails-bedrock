@@ -1,0 +1,99 @@
+{
+ "usage": {
+  "topicPolicyUnits": 0,
+  "contentPolicyUnits": 0,
+  "wordPolicyUnits": 0,
+  "sensitiveInformationPolicyUnits": 0,
+  "sensitiveInformationPolicyFreeUnits": 0,
+  "contextualGroundingPolicyUnits": 0,
+  "contentPolicyImageUnits": 0,
+  "automatedReasoningPolicyUnits": 1,
+  "automatedReasoningPolicies": 1
+ },
+ "action": "NONE",
+ "actionReason": "No action.",
+ "outputs": [],
+ "assessments": [
+  {
+   "automatedReasoningPolicy": {
+    "findings": [
+     {
+      "satisfiable": {
+       "translation": {
+        "premises": [],
+        "claims": [
+         {
+          "logic": "(not mayCheckOutLabEquipment)",
+          "naturalLanguage": "mayCheckOutLabEquipment is false"
+         }
+        ],
+        "untranslatedPremises": [],
+        "untranslatedClaims": [],
+        "confidence": 1.0
+       },
+       "claimsTrueScenario": {
+        "statements": [
+         {
+          "logic": "(= mayCheckOutLabEquipment\n   false)",
+          "naturalLanguage": "mayCheckOutLabEquipment is false"
+         },
+         {
+          "logic": "(= personRole visitor)",
+          "naturalLanguage": "personRole is equal to visitor"
+         }
+        ]
+       },
+       "claimsFalseScenario": {
+        "statements": [
+         {
+          "logic": "(= mayCheckOutLabEquipment\n   true)",
+          "naturalLanguage": "mayCheckOutLabEquipment is true"
+         },
+         {
+          "logic": "(= personRole\n   |enrolled student|)",
+          "naturalLanguage": "personRole is equal to enrolled student"
+         }
+        ]
+       }
+      }
+     }
+    ]
+   },
+   "invocationMetrics": {
+    "guardrailProcessingLatency": 1889,
+    "usage": {
+     "topicPolicyUnits": 0,
+     "contentPolicyUnits": 0,
+     "wordPolicyUnits": 0,
+     "sensitiveInformationPolicyUnits": 0,
+     "sensitiveInformationPolicyFreeUnits": 0,
+     "contextualGroundingPolicyUnits": 0,
+     "contentPolicyImageUnits": 0,
+     "automatedReasoningPolicyUnits": 1,
+     "automatedReasoningPolicies": 1
+    },
+    "guardrailCoverage": {
+     "textCharacters": {
+      "guarded": 3,
+      "total": 39
+     }
+    }
+   },
+   "appliedGuardrailDetails": {
+    "guardrailId": "xrllulnk0qd8",
+    "guardrailVersion": "1",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCOUNT_ID>:guardrail/xrllulnk0qd8",
+    "guardrailOrigin": [
+     "REQUEST"
+    ],
+    "guardrailOwnership": "SELF"
+   }
+  }
+ ],
+ "guardrailCoverage": {
+  "textCharacters": {
+   "guarded": 3,
+   "total": 39
+  }
+ }
+}
