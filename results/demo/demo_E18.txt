@@ -1,0 +1,10 @@
+Policy     : equipment  (guardrail o9du2pd5zoxl v1)
+Question   : I'm a visiting researcher and I finished the safety course, so my training is current. May I borrow a multimeter?
+Answer     : Yes, since your safety training is current you may borrow it.
+Calling Bedrock Automated Reasoning ...
+
+Finding 1: translationAmbiguous
+  one reading: premises ['(= personRole visitor)', '(= personSafetyTraining current)'] claims ['isCheckoutAllowed']
+  one reading: premises ['(= personSafetyTraining current)'] claims ['isCheckoutAllowed']
+
+Gold label (from the English policy): INVALID

@@ -1,0 +1,13 @@
+Policy     : equipment  (guardrail o9du2pd5zoxl v1)
+Question   : I'm an enrolled student, but my safety training expired. Can I check out lab equipment?
+Answer     : Yes, enrolled students can check out lab equipment.
+Calling Bedrock Automated Reasoning ...
+
+Finding 1: INVALID
+  premise : (= personRole |enrolled student|)
+  premise : (= personSafetyTraining notCurrent)
+  claim   : isCheckoutAllowed
+  translation confidence: 1.0
+  contradicts rule XXSD0Z98EYAR: A person whose safety training is not current cannot check out lab equipment, regardless of their role.
+
+Gold label (from the English policy): INVALID

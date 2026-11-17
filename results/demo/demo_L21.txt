@@ -1,0 +1,13 @@
+Policy     : leave  (guardrail ce6t8060ktvy v1)
+Question   : I'm a full-time employee. Am I eligible for leave?
+Answer     : Yes.
+Calling Bedrock Automated Reasoning ...
+
+Finding 1: NO_DECISION (satisfiable)
+  premise : (= employmentStatusValue full_time)
+  claim   : isEligibleForLeave
+  translation confidence: 1.0
+  scenario where claim can be true: (= isEligibleForLeave true); (= employmentStatusValue full_time); (= monthsOfService 12)
+  scenario where claim can be false: (= isEligibleForLeave false); (= employmentStatusValue full_time); (= monthsOfService 11)
+
+Gold label (from the English policy): NO_DECISION

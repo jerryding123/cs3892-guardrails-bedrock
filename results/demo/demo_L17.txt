@@ -1,0 +1,10 @@
+Policy     : leave  (guardrail ce6t8060ktvy v1)
+Question   : I'm full-time and I've been here eleven and a half months. Am I eligible for leave?
+Answer     : Yes. Eleven and a half months rounds up to 12 months, so you are eligible.
+Calling Bedrock Automated Reasoning ...
+
+Finding 1: translationAmbiguous
+  one reading: premises ['(= employmentStatusValue full_time)', '(>= monthsOfService 12)'] claims ['isEligibleForLeave']
+  one reading: premises ['(= employmentStatusValue full_time)', '(= monthsOfService 12)'] claims ['isEligibleForLeave']
+
+Gold label (from the English policy): INVALID

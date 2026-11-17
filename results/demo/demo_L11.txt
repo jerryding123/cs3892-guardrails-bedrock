@@ -1,0 +1,13 @@
+Policy     : leave  (guardrail ce6t8060ktvy v1)
+Question   : I'm full-time and I've completed 11 months of service. Am I eligible for leave?
+Answer     : Yes.
+Calling Bedrock Automated Reasoning ...
+
+Finding 1: INVALID
+  premise : (= employmentStatusValue full_time)
+  premise : (= monthsOfService 11)
+  claim   : isEligibleForLeave
+  translation confidence: 1.0
+  contradicts rule A55J7KMVGXVS: If the employee has completed fewer than 12 months of service, then the employee is not eligible for [...]
+
+Gold label (from the English policy): INVALID
