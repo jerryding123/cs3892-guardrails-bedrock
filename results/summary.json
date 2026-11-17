@@ -1,0 +1,327 @@
+{
+  "Bedrock | leave": {
+    "runs": 3,
+    "correct_per_run": [
+      26,
+      25,
+      24
+    ],
+    "mean_accuracy": 0.8333333333333334,
+    "unstable_cases": [
+      "L05",
+      "L13",
+      "L17",
+      "L18"
+    ],
+    "TP": 22,
+    "FN": 8,
+    "FP": 0,
+    "TN": 60,
+    "precision": 1.0,
+    "recall": 0.733,
+    "confusion": {
+      "VALID": {
+        "VALID": 23,
+        "INVALID": 0,
+        "NO_DECISION": 0,
+        "OTHER": 7
+      },
+      "INVALID": {
+        "VALID": 2,
+        "INVALID": 22,
+        "NO_DECISION": 2,
+        "OTHER": 4
+      },
+      "NO_DECISION": {
+        "VALID": 0,
+        "INVALID": 0,
+        "NO_DECISION": 30,
+        "OTHER": 0
+      }
+    }
+  },
+  "Bedrock | equipment": {
+    "runs": 3,
+    "correct_per_run": [
+      24,
+      23,
+      24
+    ],
+    "mean_accuracy": 0.788888888888889,
+    "unstable_cases": [
+      "E03",
+      "E12",
+      "E16",
+      "E18",
+      "E30"
+    ],
+    "TP": 21,
+    "FN": 9,
+    "FP": 0,
+    "TN": 60,
+    "precision": 1.0,
+    "recall": 0.7,
+    "confusion": {
+      "VALID": {
+        "VALID": 23,
+        "INVALID": 0,
+        "NO_DECISION": 0,
+        "OTHER": 7
+      },
+      "INVALID": {
+        "VALID": 0,
+        "INVALID": 21,
+        "NO_DECISION": 5,
+        "OTHER": 4
+      },
+      "NO_DECISION": {
+        "VALID": 1,
+        "INVALID": 0,
+        "NO_DECISION": 27,
+        "OTHER": 2
+      }
+    }
+  },
+  "Bedrock, training rule omitted | equipment": {
+    "runs": 3,
+    "correct_per_run": [
+      18,
+      18,
+      18
+    ],
+    "mean_accuracy": 0.6,
+    "unstable_cases": [],
+    "TP": 18,
+    "FN": 12,
+    "FP": 12,
+    "TN": 48,
+    "precision": 0.6,
+    "recall": 0.6,
+    "confusion": {
+      "VALID": {
+        "VALID": 21,
+        "INVALID": 6,
+        "NO_DECISION": 3,
+        "OTHER": 0
+      },
+      "INVALID": {
+        "VALID": 9,
+        "INVALID": 18,
+        "NO_DECISION": 3,
+        "OTHER": 0
+      },
+      "NO_DECISION": {
+        "VALID": 9,
+        "INVALID": 6,
+        "NO_DECISION": 15,
+        "OTHER": 0
+      }
+    }
+  },
+  "LLM judge (Nova Pro) | leave": {
+    "runs": 3,
+    "correct_per_run": [
+      29,
+      29,
+      30
+    ],
+    "mean_accuracy": 0.9777777777777777,
+    "unstable_cases": [
+      "L27",
+      "L29"
+    ],
+    "TP": 30,
+    "FN": 0,
+    "FP": 2,
+    "TN": 58,
+    "precision": 0.938,
+    "recall": 1.0,
+    "confusion": {
+      "VALID": {
+        "VALID": 30,
+        "INVALID": 0,
+        "NO_DECISION": 0,
+        "OTHER": 0
+      },
+      "INVALID": {
+        "VALID": 0,
+        "INVALID": 30,
+        "NO_DECISION": 0,
+        "OTHER": 0
+      },
+      "NO_DECISION": {
+        "VALID": 0,
+        "INVALID": 2,
+        "NO_DECISION": 28,
+        "OTHER": 0
+      }
+    }
+  },
+  "Regex guardrail | leave": {
+    "runs": 1,
+    "correct_per_run": null,
+    "mean_accuracy": null,
+    "unstable_cases": [],
+    "TP": 9,
+    "FN": 1,
+    "FP": 1,
+    "TN": 19,
+    "precision": 0.9,
+    "recall": 0.9,
+    "confusion": null
+  },
+  "LLM judge (Nova Pro) | equipment": {
+    "runs": 3,
+    "correct_per_run": [
+      30,
+      28,
+      30
+    ],
+    "mean_accuracy": 0.9777777777777777,
+    "unstable_cases": [
+      "E23",
+      "E27"
+    ],
+    "TP": 30,
+    "FN": 0,
+    "FP": 2,
+    "TN": 58,
+    "precision": 0.938,
+    "recall": 1.0,
+    "confusion": {
+      "VALID": {
+        "VALID": 30,
+        "INVALID": 0,
+        "NO_DECISION": 0,
+        "OTHER": 0
+      },
+      "INVALID": {
+        "VALID": 0,
+        "INVALID": 30,
+        "NO_DECISION": 0,
+        "OTHER": 0
+      },
+      "NO_DECISION": {
+        "VALID": 0,
+        "INVALID": 2,
+        "NO_DECISION": 28,
+        "OTHER": 0
+      }
+    }
+  },
+  "Regex guardrail | equipment": {
+    "runs": 1,
+    "correct_per_run": null,
+    "mean_accuracy": null,
+    "unstable_cases": [],
+    "TP": 10,
+    "FN": 0,
+    "FP": 0,
+    "TN": 20,
+    "precision": 1.0,
+    "recall": 1.0,
+    "confusion": null
+  },
+  "invalid_caught": {
+    "L11": [
+      3,
+      3,
+      true
+    ],
+    "L12": [
+      3,
+      3,
+      true
+    ],
+    "L13": [
+      1,
+      3,
+      true
+    ],
+    "L14": [
+      3,
+      3,
+      true
+    ],
+    "L15": [
+      3,
+      3,
+      true
+    ],
+    "L16": [
+      3,
+      3,
+      true
+    ],
+    "L17": [
+      0,
+      3,
+      false
+    ],
+    "L18": [
+      0,
+      3,
+      true
+    ],
+    "L19": [
+      3,
+      3,
+      true
+    ],
+    "L20": [
+      3,
+      3,
+      true
+    ],
+    "E11": [
+      3,
+      3,
+      true
+    ],
+    "E12": [
+      0,
+      3,
+      true
+    ],
+    "E13": [
+      3,
+      3,
+      true
+    ],
+    "E14": [
+      3,
+      3,
+      true
+    ],
+    "E15": [
+      3,
+      3,
+      true
+    ],
+    "E16": [
+      2,
+      3,
+      true
+    ],
+    "E17": [
+      0,
+      3,
+      true
+    ],
+    "E18": [
+      1,
+      3,
+      true
+    ],
+    "E19": [
+      3,
+      3,
+      true
+    ],
+    "E20": [
+      3,
+      3,
+      true
+    ]
+  }
+}
