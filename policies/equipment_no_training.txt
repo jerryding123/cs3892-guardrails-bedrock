@@ -1,0 +1,11 @@
+Halvorsen Lab Equipment Checkout Policy (fictional)
+
+1. Purpose
+This policy decides whether a person may check out lab equipment.
+
+2. Definitions
+2.1 Every person has exactly one role: enrolled student, staff, or visitor.
+
+3. Checkout rule
+3.1 A person may check out lab equipment if and only if their role is enrolled student or staff.
+3.2 Visitors cannot check out lab equipment, regardless of their safety training.

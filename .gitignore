@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.env
+*.pem
+.DS_Store
+# real ARNs and ids of this account's Bedrock resources (a redacted copy is committed)
+formal/state.json
+# build log contains the account number
+results/build_equipment.log

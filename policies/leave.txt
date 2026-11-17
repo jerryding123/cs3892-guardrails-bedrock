@@ -1,0 +1,13 @@
+Northfield Analytics Leave Eligibility Policy (fictional)
+
+1. Purpose
+This policy decides whether an employee is eligible for paid leave.
+
+2. Definitions
+2.1 An employee is either full-time or part-time.
+2.2 Months of service is the number of whole calendar months the employee has completed since their hire date. Partial months do not count.
+
+3. Eligibility rule
+3.1 An employee is eligible for leave if and only if the employee is full-time and has completed at least 12 months of service.
+3.2 A part-time employee is not eligible for leave, regardless of months of service.
+3.3 An employee who has completed fewer than 12 months of service is not eligible for leave, regardless of full-time or part-time status.
